@@ -6,15 +6,16 @@ add_executable(whatever ${SRC})
 
 include(ExternalProject)
 
-set_directory_properties(PROPERTIES EP_PREFIX ${CMAKE_BINARY_DIR}/Rust)
+set_directory_properties(PROPERTIES EP_PREFIX ${CMAKE_BINARY_DIR}/rust_module)
 ExternalProject_Add(
         rust_module
         DOWNLOAD_COMMAND ""
         CONFIGURE_COMMAND ""
+        UPDATE_COMMAND cd ${CMAKE_SOURCE_DIR}/rust_module; cargo build; cargo build --release
         BUILD_COMMAND cargo build COMMAND cargo build --release
-        BINARY_DIR "${CMAKE_SOURCE_DIR}/rust_module"
         INSTALL_COMMAND ""
         LOG_BUILD ON
+        BINARY_DIR "${CMAKE_SOURCE_DIR}/rust_module"
 )
 
 add_dependencies(whatever rust_module)
