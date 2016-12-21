@@ -1,0 +1,7 @@
+[package]
+name = "rust_module"
+version = "0.1.0"
+
+[lib]
+name = "rust_module"
+crate-type = ["staticlib"]
