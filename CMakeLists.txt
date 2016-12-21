@@ -21,5 +21,6 @@ add_dependencies(whatever rust_module)
 target_link_libraries(whatever
         debug "${CMAKE_SOURCE_DIR}/rust_module/target/debug/librust_module.a"
         optimized "${CMAKE_SOURCE_DIR}/rust_module/target/release/librust_module.a"
+        dl pthread gcc_s c m rt util
 )
 set_target_properties(whatever PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED ON)
